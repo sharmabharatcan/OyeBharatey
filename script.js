@@ -179,7 +179,7 @@ const youtubeViewer = document.getElementById('youtube-viewer');
 
 window.openYouTube = function(videoId) {
     if (youtubeViewer) {
-        youtubeViewer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+        youtubeViewer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&loop=1&playlist=${videoId}`;
     }
     videoModal.classList.add('active');
     cursor.classList.remove('hover');
