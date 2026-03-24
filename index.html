@@ -68,11 +68,10 @@
                 <h2 class="section-title text-reveal container">Selected Works</h2>
                 <div class="work-slider">
                     <div class="work-track">
-                        <div class="work-card" data-cursor="hover" onclick="openVideoModal('DemoReel2025.mp4')">
+                        <div class="work-card" data-cursor="hover" onclick="openYouTube('gFj1Na-n7A4')">
                             <div class="work-img">
-                                <video class="tile-video" autoplay muted loop playsinline>
-                                    <source src="DemoReel2025.mp4" type="video/mp4">
-                                </video>
+                                <!-- Loads the YouTube Thumbnail automatically based on the video ID -->
+                                <img src="https://img.youtube.com/vi/gFj1Na-n7A4/maxresdefault.jpg" class="tile-video" style="object-fit: cover;">
                                 <div class="play-btn-overlay"></div>
                             </div>
                             <div class="work-info">
@@ -80,11 +79,9 @@
                                 <p>Motion Design</p>
                             </div>
                         </div>
-                        <div class="work-card" data-cursor="hover" onclick="openVideoModal('MuscleBuilding.mp4')">
+                        <div class="work-card" data-cursor="hover" onclick="openYouTube('VidnrIuy_jQ')">
                             <div class="work-img">
-                                <video class="tile-video" autoplay muted loop playsinline>
-                                    <source src="MuscleBuilding.mp4" type="video/mp4">
-                                </video>
+                                <img src="https://img.youtube.com/vi/VidnrIuy_jQ/maxresdefault.jpg" class="tile-video" style="object-fit: cover;">
                                 <div class="play-btn-overlay"></div>
                             </div>
                             <div class="work-info">
@@ -140,14 +137,11 @@
         </div>
     </main>
 
-    <!-- VIDEO MODAL -->
+    <!-- YOUTUBE MODAL -->
     <div class="video-modal" id="videoModal">
         <div class="video-modal-close" data-cursor="hover" onclick="closeVideoModal()">CLOSE X</div>
-        <div class="video-container">
-            <video id="project-video" controls loop>
-                <source src="MuscleBuilding.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="video-container" style="background: black;">
+            <iframe id="youtube-viewer" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen" src=""></iframe>
         </div>
     </div>
 

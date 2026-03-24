@@ -173,15 +173,13 @@ gsap.fromTo(".footer-logo",
     }
 );
 
-// Video Modal Logic
+// YouTube Video Modal Logic
 const videoModal = document.getElementById('videoModal');
-const projectVideo = document.getElementById('project-video');
+const youtubeViewer = document.getElementById('youtube-viewer');
 
-window.openVideoModal = function(src) {
-    const source = projectVideo.querySelector('source');
-    if (src) {
-        source.src = src;
-        projectVideo.load(); // Reload with new source
+window.openYouTube = function(videoId) {
+    if (youtubeViewer) {
+        youtubeViewer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
     }
     videoModal.classList.add('active');
     cursor.classList.remove('hover');
@@ -190,7 +188,9 @@ window.openVideoModal = function(src) {
 
 window.closeVideoModal = function() {
     videoModal.classList.remove('active');
-    projectVideo.pause();
+    if (youtubeViewer) {
+        youtubeViewer.src = ""; // Stops the video from playing in background
+    }
     lenis.start();
 };
 
