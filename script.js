@@ -243,3 +243,26 @@ window.sendEmail = function(e) {
     closeContactModal();
     document.getElementById('contactForm').reset();
 };
+
+// Mobile Navigation Arrows Logic
+const slider = document.querySelector('.work-slider');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+if (slider && prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        const card = slider.querySelector('.work-card');
+        if (card) {
+            const scrollAmount = card.offsetWidth + (window.innerWidth * 0.05);
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const card = slider.querySelector('.work-card');
+        if (card) {
+            const scrollAmount = card.offsetWidth + (window.innerWidth * 0.05);
+            slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    });
+}
