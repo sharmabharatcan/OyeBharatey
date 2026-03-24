@@ -584,8 +584,8 @@ body {
     }
 
     .work-img iframe {
-        transform: scale(1.35);
-        transform-origin: center;
+        /* No zoom on mobile — 16:9 iframe fits perfectly without scaling */
+        transform: none;
     }
 }
 
@@ -626,7 +626,7 @@ body {
     
     .work-section { padding: 10vh 0; }
     .work-card { width: 85vw; min-width: 280px; }
-    .work-img { height: 45vh; }
+    /* work-img height controlled by 16:9 ratio from the 1024px block */
     
     .footer { height: auto; padding: 15vh 0; }
     .huge-text { font-size: 20vw; }
