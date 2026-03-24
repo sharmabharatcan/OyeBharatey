@@ -251,25 +251,55 @@ window.sendEmail = function(e) {
     document.getElementById('contactForm').reset();
 };
 
-// Mobile Navigation Arrows Logic
+// ── Work Slider: Mobile Arrows + iOS Touch Fix ──────────────────────
 const slider = document.querySelector('.work-slider');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
-if (slider && prevBtn && nextBtn) {
-    nextBtn.addEventListener('click', () => {
-        const card = slider.querySelector('.work-card');
-        if (card) {
-            const scrollAmount = card.offsetWidth + (window.innerWidth * 0.05);
-            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+function getCardScrollWidth() {
+    const card = slider && slider.querySelector('.work-card');
+    return card ? card.offsetWidth + parseInt(getComputedStyle(card).marginRight || 0) : window.innerWidth * 0.85;
+}
+
+if (slider) {
+    // Arrow buttons: scroll by exactly one card width
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: getCardScrollWidth(), behavior: 'smooth' });
+    });
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -getCardScrollWidth(), behavior: 'smooth' });
     });
 
-    prevBtn.addEventListener('click', () => {
-        const card = slider.querySelector('.work-card');
-        if (card) {
-            const scrollAmount = card.offsetWidth + (window.innerWidth * 0.05);
-            slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    // iOS custom swipe: detect horizontal intent, hand off to slider
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = false;
+        lenis.stop(); // Pause Lenis so it doesn't intercept
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', (e) => {
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
+        const dy = Math.abs(e.touches[0].clientY - touchStartY);
+        if (!isSwiping && dx > dy && dx > 8) {
+            isSwiping = true; // Confirmed horizontal — handle natively
         }
-    });
+        if (isSwiping) {
+            e.stopPropagation(); // Don't let Lenis or anything else interfere
+        }
+    }, { passive: true });
+
+    slider.addEventListener('touchend', () => {
+        isSwiping = false;
+        lenis.start(); // Resume vertical page scroll
+    }, { passive: true });
+
+    slider.addEventListener('touchcancel', () => {
+        isSwiping = false;
+        lenis.start();
+    }, { passive: true });
 }

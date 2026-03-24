@@ -65,7 +65,13 @@
 
             <!-- SELECTED WORKS -->
             <section id="work" class="work-section">
-                <h2 class="section-title text-reveal container">Selected Works</h2>
+                <div class="work-section-header container">
+                    <h2 class="section-title text-reveal">Selected Works</h2>
+                    <div class="mobile-nav-arrows">
+                        <button id="prevBtn" class="nav-arrow" aria-label="Previous">&#8592;</button>
+                        <button id="nextBtn" class="nav-arrow" aria-label="Next">&#8594;</button>
+                    </div>
+                </div>
                 <div class="work-slider">
                     <div class="work-track">
                         <div class="work-card" data-cursor="hover" onclick="openYouTube('gFj1Na-n7A4')">
@@ -109,12 +115,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Mobile Navigation Arrows -->
-                <div class="mobile-nav-arrows">
-                    <button id="prevBtn" class="nav-arrow" aria-label="Previous">&larr;</button>
-                    <button id="nextBtn" class="nav-arrow" aria-label="Next">&rarr;</button>
                 </div>
             </section>
 

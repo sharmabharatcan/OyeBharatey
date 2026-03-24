@@ -491,70 +491,102 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
-    .hero-title { font-size: 11vw; }
-    
-    .work-slider {
-        overflow-x: auto;
-        overflow-y: hidden;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 1rem;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        scroll-behavior: smooth; /* For button-triggered scrolling */
-    }
-    .work-slider::-webkit-scrollbar { display: none; }
-    
-    .work-track {
-        width: max-content;
-        gap: 5vw;
-        padding: 0 10vw; /* More padding on sides */
-    }
-    
-    .work-card { 
-        width: 80vw; 
-        min-width: unset;
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
-    }
-
-    /* Mobile Nav Arrows Styling */
-    .mobile-nav-arrows {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-    
-    .nav-arrow {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-    }
-    
-    .nav-arrow:active {
-        transform: scale(0.9);
-        background: var(--accent);
-    }
+/* Section header with inline arrows — hidden on desktop */
+.work-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
 /* Hide arrows on desktop */
 .mobile-nav-arrows {
     display: none;
+}
+
+@media (max-width: 1024px) {
+    .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+    .hero-title { font-size: 11vw; }
+
+    /* Show nav arrows beside heading */
+    .mobile-nav-arrows {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .nav-arrow {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.25s ease, transform 0.15s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-arrow:active {
+        transform: scale(0.88);
+        background: var(--accent);
+    }
+
+    /* Horizontal swipeable slider */
+    .work-slider {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .work-slider::-webkit-scrollbar { display: none; }
+
+    .work-track {
+        display: flex;
+        gap: 5vw;
+        padding: 0 5vw;
+        width: max-content;
+    }
+
+    /* Lock card width so all 4 are identical */
+    .work-card {
+        width: 80vw;
+        min-width: unset;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    /* Fixed 16:9 aspect ratio — identical for all 4 cards */
+    .work-img {
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #1a1a1a;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Stretch all children (iframes + imgs) to fill the ratio box */
+    .work-img > * {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .work-img iframe {
+        transform: scale(1.35);
+        transform-origin: center;
+    }
 }
 
 @media (max-width: 768px) {
