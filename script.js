@@ -2,10 +2,6 @@
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false,
@@ -17,6 +13,14 @@ function raf(time) {
     requestAnimationFrame(raf)
 }
 requestAnimationFrame(raf)
+
+// Release Lenis when user swipes inside the work slider (critical for iOS)
+const workSliderEl = document.querySelector('.work-slider');
+if (workSliderEl) {
+    workSliderEl.addEventListener('touchstart', () => lenis.stop(), { passive: true });
+    workSliderEl.addEventListener('touchend', () => lenis.start(), { passive: true });
+    workSliderEl.addEventListener('touchcancel', () => lenis.start(), { passive: true });
+}
 
 // Smooth Scroll for Navbar Links
 document.querySelectorAll('.nav-links a').forEach(link => {
