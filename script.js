@@ -108,20 +108,24 @@ gsap.from(".expertise-item", {
     ease: "power3.out"
 });
 
-// Horizontal Scroll for Works
+// Horizontal Scroll for Works (Desktop Only)
 const workTrack = document.querySelector('.work-track');
 
-gsap.to(workTrack, {
-    x: () => -(workTrack.scrollWidth - window.innerWidth),
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".work-section",
-        start: "top top",
-        end: () => "+=" + workTrack.scrollWidth,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true
-    }
+let mm = gsap.matchMedia();
+
+mm.add("(min-width: 1025px)", () => {
+    gsap.to(workTrack, {
+        x: () => -(workTrack.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".work-section",
+            start: "top top",
+            end: () => "+=" + workTrack.scrollWidth,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true
+        }
+    });
 });
 
 // Parallax Image inside Work Cards

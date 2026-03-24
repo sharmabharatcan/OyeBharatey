@@ -481,7 +481,30 @@ body {
 @media (max-width: 1024px) {
     .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
     .hero-title { font-size: 11vw; }
-    .work-card { width: 60vw; min-width: 400px; }
+    
+    .work-slider {
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 2rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .work-slider::-webkit-scrollbar { display: none; }
+    
+    .work-track {
+        width: max-content;
+        gap: 5vw;
+        padding: 0 5vw;
+    }
+    
+    .work-card { 
+        width: 80vw; 
+        min-width: unset;
+        scroll-snap-align: center;
+    }
 }
 
 @media (max-width: 768px) {
