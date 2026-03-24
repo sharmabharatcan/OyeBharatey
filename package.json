@@ -1,0 +1,9 @@
+{
+  "name": "oyebharatey-portfolio",
+  "version": "1.0.0",
+  "description": "OyeBharatey - Multimedia Designer Portfolio",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build step needed!'"
+  }
+}

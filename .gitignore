@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Large media files - upload separately to host
+*.mp4
+OWR_Redesign.pdf
+ERA&AURA_project.pdf

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OyeBharatey | Multimedia Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="loader">
+        <h1 class="loader-text">OyeBharatey</h1>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">OyeBharatey.</div>
+        <ul class="nav-links">
+            <li><a href="#work" data-cursor="hover">Work</a></li>
+            <li><a href="#expertise" data-cursor="hover">Expertise</a></li>
+            <li><a href="#contact" data-cursor="hover">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-image-container">
+                    <img src="hero.png" alt="OyeBharatey" class="hero-image">
+                </div>
+                <div class="hero-content">
+                    <p class="hero-subtitle">Multimedia Designer</p>
+                    <h1 class="hero-title" data-cursor="hover">
+                        <span class="line">Crafting</span>
+                        <span class="line">Digital</span>
+                        <span class="line accent">Experiences</span>
+                    </h1>
+                </div>
+            </section>
+
+            <!-- EXPERTISE -->
+            <section id="expertise" class="expertise">
+                <div class="container">
+                    <h2 class="section-title text-reveal">My Expertise</h2>
+                    <div class="expertise-grid">
+                        <div class="expertise-item" data-cursor="hover">
+                            <h3 class="ex-num">01</h3>
+                            <h3 class="ex-title">Motion Design</h3>
+                            <p>Bringing ideas to life with fluid, dynamic motion that captivates and communicates.</p>
+                        </div>
+                        <div class="expertise-item" data-cursor="hover">
+                            <h3 class="ex-num">02</h3>
+                            <h3 class="ex-title">UI/UX Design</h3>
+                            <p>Crafting intuitive, user-centric interfaces with a focus on seamless experiences.</p>
+                        </div>
+                        <div class="expertise-item" data-cursor="hover">
+                            <h3 class="ex-num">03</h3>
+                            <h3 class="ex-title">Video Editing</h3>
+                            <p>Weaving narratives through precise cuts, color grading, and sonic perfection.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SELECTED WORKS -->
+            <section id="work" class="work-section">
+                <h2 class="section-title text-reveal container">Selected Works</h2>
+                <div class="work-slider">
+                    <div class="work-track">
+                        <div class="work-card" data-cursor="hover" onclick="openVideoModal('DemoReel2025.mp4')">
+                            <div class="work-img">
+                                <video class="tile-video" autoplay muted loop playsinline>
+                                    <source src="DemoReel2025.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-btn-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <h3>Work Reel</h3>
+                                <p>Motion Design</p>
+                            </div>
+                        </div>
+                        <div class="work-card" data-cursor="hover" onclick="openVideoModal('MuscleBuilding.mp4')">
+                            <div class="work-img">
+                                <video class="tile-video" autoplay muted loop playsinline>
+                                    <source src="MuscleBuilding.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-btn-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <h3>Muscle Building</h3>
+                                <p>Motion Design</p>
+                            </div>
+                        </div>
+                        <div class="work-card" data-cursor="hover" onclick="openPdfModal('ERA&AURA_project-compressed.pdf')">
+                            <div class="work-img">
+                                <img src="era_aura_preview.jpg" alt="Era & Aura" class="tile-video" style="object-fit: cover;">
+                                <div class="play-btn-overlay pdf-icon"></div>
+                            </div>
+                            <div class="work-info">
+                                <h3>Era & Aura</h3>
+                                <p>UI/UX Design</p>
+                            </div>
+                        </div>
+                        <div class="work-card" data-cursor="hover" onclick="openPdfModal('MuscleBuild.pdf')">
+                            <div class="work-img">
+                                <img src="build_muscle_preview.png" alt="Build Muscle" class="tile-video" style="object-fit: cover;">
+                                <div class="play-btn-overlay pdf-icon"></div>
+                            </div>
+                            <div class="work-info">
+                                <h3>Build Muscle</h3>
+                                <p>Infographics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <section id="contact" class="footer">
+                <div class="footer-content">
+                    <img src="logo.png" alt="OyeBharatey Logo" class="footer-logo">
+                    <p>Have an idea?</p>
+                    <h1 class="huge-text" data-cursor="hover" onclick="openContactModal()" style="cursor: pointer;">Let's Talk</h1>
+                    <div class="footer-links">
+                        <a href="tel:+14372625266" data-cursor="hover">
+                            <span class="link-label">Phone</span>
+                            <span class="link-hover">+1 (437)-262-5266</span>
+                        </a>
+                        <a href="mailto:sharmabharatcan@gmail.com" data-cursor="hover">
+                            <span class="link-label">Gmail</span>
+                            <span class="link-hover">sharmabharatcan@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bharat-sharma-75153318b" target="_blank" data-cursor="hover">
+                            <span class="link-label">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-close" data-cursor="hover" onclick="closeVideoModal()">CLOSE X</div>
+        <div class="video-container">
+            <video id="project-video" controls loop>
+                <source src="MuscleBuilding.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- PDF MODAL -->
+    <div class="video-modal" id="pdfModal">
+        <div class="video-modal-close" onclick="closePdfModal()">CLOSE X</div>
+        <div class="pdf-container">
+            <iframe id="pdf-viewer" src="ERA&AURA_project-compressed.pdf" type="application/pdf"></iframe>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div class="video-modal" id="contactModal">
+        <div class="video-modal-close" onclick="closeContactModal()">CLOSE X</div>
+        <div class="contact-form-container">
+            <h2>Start a Project</h2>
+            <p>Tell me about your idea and I'll get back to you shortly.</p>
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <input type="text" id="senderName" placeholder="Your Name" required>
+                <input type="email" id="senderEmail" placeholder="Your Email" required>
+                <textarea id="senderMessage" rows="5" placeholder="Project details or just saying hello..." required></textarea>
+                <button type="submit" class="submit-btn" data-cursor="hover">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
