@@ -1,9 +1,10 @@
 // Initialize Lenis for Smooth Scrolling
 const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.0,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothTouch: false,
     touchMultiplier: 2,
+    wheelMultiplier: 1.8, // More responsive on Mac trackpads
     infinite: false,
 })
 
@@ -118,15 +119,17 @@ const workTrack = document.querySelector('.work-track');
 let mm = gsap.matchMedia();
 
 mm.add("(min-width: 1025px)", () => {
+    // Use 60% of scroll width so Mac users don't need excessive swipes
+    const pinDistance = () => workTrack.scrollWidth * 0.75;
     gsap.to(workTrack, {
         x: () => -(workTrack.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
             trigger: ".work-section",
             start: "top top",
-            end: () => "+=" + workTrack.scrollWidth,
+            end: pinDistance,
             pin: true,
-            scrub: 1,
+            scrub: 0.5,
             invalidateOnRefresh: true
         }
     });

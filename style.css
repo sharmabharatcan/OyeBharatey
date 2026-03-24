@@ -14,12 +14,18 @@
     box-sizing: border-box;
 }
 
+html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+}
+
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none; 
+    cursor: none;
+    overscroll-behavior: none; /* Prevents iOS/Mac rubber-band fighting with Lenis */
 }
 
 /* Custom Cursor */
